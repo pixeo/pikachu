@@ -4,6 +4,8 @@ A simple site launch checklist checker.
 
 ![](https://media.giphy.com/media/xuXzcHMkuwvf2/giphy.gif)
 
+It uses the rules from [kupo](https://github.com/phanan/kupo) and shows them in a terminal output.
+
 ## Installation
 
 Download or clone the repository and run
