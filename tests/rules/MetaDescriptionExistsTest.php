@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\MetaDescriptionExists;
 use Tests\BrowserKitTestCase;
+use App\Rules\MetaDescriptionExists;
 
 class MetaDescriptionExistsTest extends BrowserKitTestCase
 {

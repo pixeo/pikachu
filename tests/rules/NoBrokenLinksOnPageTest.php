@@ -2,14 +2,14 @@
 
 namespace Tests\Rules;
 
-use App\Rules\NoBrokenLinksOnPage;
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
-use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Psr7\Response;
 use Tests\BrowserKitTestCase;
+use App\Rules\NoBrokenLinksOnPage;
+use GuzzleHttp\Handler\MockHandler;
 
 class NoBrokenLinksOnPageTest extends BrowserKitTestCase
 {

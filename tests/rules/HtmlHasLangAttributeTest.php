@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\HtmlHasLangAttribute;
 use Tests\BrowserKitTestCase;
+use App\Rules\HtmlHasLangAttribute;
 
 class HtmlHasLangAttributeTest extends BrowserKitTestCase
 {

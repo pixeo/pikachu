@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\CharacterSetExists;
 use Tests\BrowserKitTestCase;
+use App\Rules\CharacterSetExists;
 
 class CharacterSetExistsTest extends BrowserKitTestCase
 {

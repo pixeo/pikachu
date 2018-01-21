@@ -3,12 +3,12 @@
 namespace App\Rules;
 
 use App\Crawler;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Pool;
+use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\RequestException;
 
 class NoBrokenLinksOnPage extends Rule
 {
@@ -68,7 +68,7 @@ class NoBrokenLinksOnPage extends Rule
         $pool = new Pool($this->client, $requests, [
             'concurrency' => 5,
             'fulfilled' => function () use (&$ok) {
-                ++$ok;
+                $ok++;
             },
             'rejected' => function (RequestException $e) use (&$ok, &$fail) {
                 if ($e->getCode() !== 403) {
@@ -77,7 +77,7 @@ class NoBrokenLinksOnPage extends Rule
 
                     try {
                         $this->client->send($retryRequest);
-                        ++$ok;
+                        $ok++;
 
                         return;
                     } catch (RequestException $retryException) {
@@ -106,7 +106,7 @@ class NoBrokenLinksOnPage extends Rule
                 'Found **'.count($fail).'** broken '.str_plural('link', count($fail)).':'.PHP_EOL.PHP_EOL.implode(PHP_EOL, $fail) :
                 "All $ok ".str_plural('link', $ok).' on the page are working.';
 
-        return !$fail;
+        return ! $fail;
     }
 
     /**

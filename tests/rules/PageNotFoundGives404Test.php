@@ -2,13 +2,13 @@
 
 namespace Tests\Rules;
 
-use App\Facades\UrlHelper;
-use App\Rules\PageNotFoundGives404;
 use GuzzleHttp\Client;
-use GuzzleHttp\Handler\MockHandler;
+use App\Facades\UrlHelper;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Tests\BrowserKitTestCase;
+use App\Rules\PageNotFoundGives404;
+use GuzzleHttp\Handler\MockHandler;
 
 class PageNotFoundGives404Test extends BrowserKitTestCase
 {

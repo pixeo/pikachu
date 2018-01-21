@@ -3,9 +3,9 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use GuzzleHttp\Exception\ClientException;
 
 class UrlHelper
 {

@@ -57,7 +57,7 @@ class Crawler extends BaseCrawler
         $xpath = $converter->toXPath($selector);
 
         $re = '/(@(.*?))\s*=/';
-        if (!preg_match_all($re, $xpath, $matches)) {
+        if (! preg_match_all($re, $xpath, $matches)) {
             throw new \Exception("$selector is not a valid/usable CSS selector.");
         }
 
