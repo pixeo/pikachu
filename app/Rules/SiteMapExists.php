@@ -3,10 +3,10 @@
 namespace App\Rules;
 
 use App\Crawler;
-use App\Services\RobotsFile;
-use App\Services\UrlHelper;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use App\Facades\RobotsFile;
+use App\Facades\UrlHelper;
 
 class SiteMapExists extends Rule
 {
@@ -19,17 +19,17 @@ class SiteMapExists extends Rule
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
         /** @var \RobotsTxtParser $parser */
-        $parser = app(RobotsFile::class)->getParser();
+        $parser = RobotsFile::getParser();
         if (!$maps = $parser->getSitemaps()) {
-            $maps = [app(UrlHelper::class)->getDefaultSiteMapUrl((string) $uri)];
+            $maps = [UrlHelper::getDefaultSiteMapUrl((string) $uri)];
         }
 
         $validMaps = [];
         $invalidMaps = [];
 
         foreach ($maps as $map) {
-            $map = app(UrlHelper::class)->absolutize($map, $uri);
-            if (app(UrlHelper::class)->exists($map)) {
+            $map = UrlHelper::absolutize($map, $uri);
+            if (UrlHelper::exists($map)) {
                 $validMaps[] = "`$map`";
             } else {
                 $invalidMaps[] = "`$map`";

@@ -12,7 +12,7 @@ trait CreatesApplication
      *
      * @return \LaravelZero\Framework\Contracts\Application
      */
-    public function createApplication(): ApplicationContract
+    public function createApplication()
     {
         return new Application;
     }

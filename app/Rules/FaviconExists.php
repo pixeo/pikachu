@@ -3,9 +3,9 @@
 namespace App\Rules;
 
 use App\Crawler;
-use App\Services\UrlHelper;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use App\Facades\UrlHelper;
 
 class FaviconExists extends Rule
 {
@@ -25,9 +25,9 @@ class FaviconExists extends Rule
         // If we can find it, use it. Otherwise, resort to the root favicon.ico.
         $this->faviconUrl = count($links) ?
             $links->first()->link()->getUri() :
-            app(UrlHelper::class)->getDefaultFaviconUrl($uri);
+            UrlHelper::getDefaultFaviconUrl($uri);
 
-        return app(UrlHelper::class)->exists($this->faviconUrl);
+        return UrlHelper::exists($this->faviconUrl);
     }
 
     /**

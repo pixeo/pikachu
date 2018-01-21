@@ -17,7 +17,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->alias(Markdown::class, 'Markdown');
+        $this->app->alias(RobotsFile::class, 'RobotsFile');
+        $this->app->alias(UrlFetcher::class, 'UrlFetcher');
+//        $this->app->alias(UrlHelper::class, 'UrlHelper');
     }
 
     /**
@@ -27,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+
     }
 }

@@ -5,6 +5,7 @@ namespace App\Rules;
 use App\Crawler;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use App\Facades\RobotsFile;
 
 class RobotsAllowedInTxt extends Rule
 {
@@ -13,7 +14,7 @@ class RobotsAllowedInTxt extends Rule
      */
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
-        if (!$content = app(\App\Services\RobotsFile::class)->getContent()) {
+        if (!$content = RobotsFile::getContent()) {
             return true;
         }
 
@@ -22,7 +23,7 @@ class RobotsAllowedInTxt extends Rule
         //   Disallow: /
         // appears in the file.
 
-        $parser = app(\App\Services\RobotsFile::class)->getParser();
+        $parser = RobotsFile::getParser();
         $parser->setUserAgent('*');
 
         return $parser->isAllowed('/');

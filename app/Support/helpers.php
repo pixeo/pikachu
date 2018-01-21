@@ -3,6 +3,6 @@
 if (!function_exists('md')) {
     function md($text)
     {
-        return app(\App\Services\Markdown::class)->parse($text);
+        return preg_replace("/(`)(.*?)(`)/", '<options=bold>$2</>' ,$text);
     }
 }

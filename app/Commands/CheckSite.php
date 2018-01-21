@@ -44,23 +44,20 @@ class CheckSite extends Command
     {
         $this->getLocations()
             ->each(function ($location) {
-                $path = (new Uri($location->textContent))->getPath();
-
                 $results = collect(app(Checker::class)->validate($location->textContent));
 
-                $this->info($this->buildMessage(
-                    $path,
-                    $results->where('passed', true)->count(),
-                    $results->where('passed', false)->count()
-                ));
+                $this->info($location->textContent);
 
-                $this->output->writeln("");
-
-                $results->where('passed', false)->each(function ($result) {
-                    $this->warn("\t" . $result['message']);
+                $results->each(function ($result) {
+                    if ($result["passed"]) {
+                        $icon = mb_convert_encoding("\x27\x13", 'UTF-8', 'UTF-16BE');
+                        $this->line("<fg=green>{$icon}</> {$result['message']}");
+                    } else {
+                        $icon = mb_convert_encoding("\x27\x16", 'UTF-8', 'UTF-16BE');
+                        $this->line("<fg=red>{$icon}</> {$result['message']}");
+                    }
                 });
 
-                $this->output->writeln("");
                 $this->output->writeln("");
             });
     }

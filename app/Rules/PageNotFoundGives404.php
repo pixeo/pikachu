@@ -3,7 +3,7 @@
 namespace App\Rules;
 
 use App\Crawler;
-use App\Services\UrlHelper;
+use App\Facades\UrlHelper;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use Psr\Http\Message\ResponseInterface;
@@ -31,7 +31,7 @@ class PageNotFoundGives404 extends Rule
      */
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
-        $uri = app(UrlHelper::class)->getRootFileUrl((string) $uri, '/-~!page-to-test-404-responses-for-invalid-pages!~-');
+        $uri = UrlHelper::getRootFileUrl((string) $uri, '/-~!page-to-test-404-responses-for-invalid-pages!~-');
 
         try {
             $response = $this->client->get($uri);

@@ -63,7 +63,7 @@ abstract class Rule implements RuleInterface
     public function __get($name)
     {
         if (in_array($name, ['passedMessage', 'failedMessage', 'helpMessage'], true)) {
-            return $this->$name();
+            return md($this->$name());
         }
 
         return $this->$name;
