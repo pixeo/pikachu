@@ -3,7 +3,6 @@
 namespace Tests;
 
 use LaravelZero\Framework\Application;
-use LaravelZero\Framework\Contracts\Application as ApplicationContract;
 
 trait CreatesApplication
 {

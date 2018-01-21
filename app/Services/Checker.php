@@ -2,10 +2,10 @@
 
 namespace App\Services;
 
-use App\Crawler;
-use App\Rules\Levels;
-use App\Rules\Rule;
 use Exception;
+use App\Crawler;
+use App\Rules\Rule;
+use App\Rules\Levels;
 use GuzzleHttp\Psr7\Uri;
 use Illuminate\Contracts\Container\Container;
 
@@ -57,7 +57,6 @@ class Checker
         $this->robotsFile->setUrl($this->urlHelper->getRobotsUrl($uri));
 
         $crawler = new Crawler($response, $uri);
-
 
         foreach ((array) config('rules') as $ruleClassName) {
             /** @var Rule $rule */

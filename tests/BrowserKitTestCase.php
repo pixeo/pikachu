@@ -3,8 +3,8 @@
 namespace Tests;
 
 use App\Crawler;
-use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\Psr7\Uri;
+use GuzzleHttp\Psr7\Response;
 
 abstract class BrowserKitTestCase extends TestCase
 {
@@ -19,7 +19,7 @@ abstract class BrowserKitTestCase extends TestCase
      */
     public function createArgumentsFromBlob($name)
     {
-        if (!ends_with($name, '.html')) {
+        if (! ends_with($name, '.html')) {
             $name = "$name.html";
         }
 
@@ -39,7 +39,7 @@ abstract class BrowserKitTestCase extends TestCase
      */
     public function createArgumentsFromMessage($name)
     {
-        if (!ends_with($name, '.txt')) {
+        if (! ends_with($name, '.txt')) {
             $name = "$name.txt";
         }
 

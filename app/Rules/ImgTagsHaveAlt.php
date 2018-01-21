@@ -3,8 +3,8 @@
 namespace App\Rules;
 
 use App\Crawler;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class ImgTagsHaveAlt extends Rule
 {
@@ -14,7 +14,7 @@ class ImgTagsHaveAlt extends Rule
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
         foreach ($crawler->filter('img') as $img) {
-            if (!trim($img->getAttribute('alt'))) {
+            if (! trim($img->getAttribute('alt'))) {
                 return false;
             }
         }

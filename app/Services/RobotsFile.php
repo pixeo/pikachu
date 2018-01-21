@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
+use RobotsTxtParser;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
-use RobotsTxtParser;
 
 class RobotsFile
 {
@@ -92,7 +92,7 @@ class RobotsFile
      */
     public function getParser()
     {
-        if (!$this->parser) {
+        if (! $this->parser) {
             $this->setParser(new RobotsTxtParser($this->getContent()));
         }
 

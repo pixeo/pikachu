@@ -3,11 +3,11 @@
 namespace App\Rules;
 
 use App\Crawler;
-use App\Facades\UrlHelper;
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\BadResponseException;
-use Psr\Http\Message\ResponseInterface;
+use App\Facades\UrlHelper;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
+use GuzzleHttp\Exception\BadResponseException;
 
 class PageNotFoundGives404 extends Rule
 {

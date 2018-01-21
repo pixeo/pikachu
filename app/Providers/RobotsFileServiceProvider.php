@@ -25,7 +25,5 @@ class RobotsFileServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->singleton(RobotsFile::class);
-
-
     }
 }

@@ -2,12 +2,11 @@
 
 namespace App\Commands;
 
-use App\Services\Checker;
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Uri;
+use App\Services\Checker;
 use Illuminate\Support\Collection;
-use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\DomCrawler\Crawler;
+use LaravelZero\Framework\Commands\Command;
 
 class CheckSite extends Command
 {
@@ -49,7 +48,7 @@ class CheckSite extends Command
                 $this->info($location->textContent);
 
                 $results->each(function ($result) {
-                    if ($result["passed"]) {
+                    if ($result['passed']) {
                         $icon = mb_convert_encoding("\x27\x13", 'UTF-8', 'UTF-16BE');
                         $this->line("<fg=green>{$icon}</> {$result['message']}");
                     } else {
@@ -58,7 +57,7 @@ class CheckSite extends Command
                     }
                 });
 
-                $this->output->writeln("");
+                $this->output->writeln('');
             });
     }
 
@@ -71,6 +70,7 @@ class CheckSite extends Command
         $response = $client->request('GET', $this->argument('sitemap'));
 
         $crawler = new Crawler($response->getBody()->getContents());
+
         return collect($crawler->filterXPath('//loc'));
     }
 

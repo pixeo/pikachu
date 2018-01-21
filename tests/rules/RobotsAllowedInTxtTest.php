@@ -3,8 +3,8 @@
 namespace Tests\Rules;
 
 use App\Facades\RobotsFile;
-use App\Rules\RobotsAllowedInTxt;
 use Tests\BrowserKitTestCase;
+use App\Rules\RobotsAllowedInTxt;
 
 class RobotsAllowedInTxtTest extends BrowserKitTestCase
 {

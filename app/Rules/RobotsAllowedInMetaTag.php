@@ -3,8 +3,8 @@
 namespace App\Rules;
 
 use App\Crawler;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class RobotsAllowedInMetaTag extends Rule
 {
@@ -13,7 +13,7 @@ class RobotsAllowedInMetaTag extends Rule
      */
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
-        if (!count($tags = $crawler->filterCaseInsensitiveAttribute('meta[name=robots]'))) {
+        if (! count($tags = $crawler->filterCaseInsensitiveAttribute('meta[name=robots]'))) {
             return true;
         }
 

@@ -3,8 +3,8 @@
 namespace App\Rules;
 
 use App\Crawler;
-use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class HtmlHasLangAttribute extends Rule
 {

@@ -2,10 +2,10 @@
 
 namespace Tests\Rules;
 
-use App\Facades\RobotsFile;
-use App\Facades\UrlHelper;
-use App\Rules\SiteMapExists;
 use Mockery as m;
+use App\Facades\UrlHelper;
+use App\Facades\RobotsFile;
+use App\Rules\SiteMapExists;
 use Tests\BrowserKitTestCase;
 
 class SiteMapExistsTest extends BrowserKitTestCase

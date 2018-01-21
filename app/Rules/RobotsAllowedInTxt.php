@@ -3,9 +3,9 @@
 namespace App\Rules;
 
 use App\Crawler;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 use App\Facades\RobotsFile;
+use Psr\Http\Message\UriInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class RobotsAllowedInTxt extends Rule
 {
@@ -14,7 +14,7 @@ class RobotsAllowedInTxt extends Rule
      */
     public function check(Crawler $crawler, ResponseInterface $response, UriInterface $uri)
     {
-        if (!$content = RobotsFile::getContent()) {
+        if (! $content = RobotsFile::getContent()) {
             return true;
         }
 

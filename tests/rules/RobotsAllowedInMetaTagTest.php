@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\RobotsAllowedInMetaTag;
 use Tests\BrowserKitTestCase;
+use App\Rules\RobotsAllowedInMetaTag;
 
 class RobotsAllowedInMetaTagTest extends BrowserKitTestCase
 {

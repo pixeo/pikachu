@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\TwitterOGTagsExist;
 use Tests\BrowserKitTestCase;
+use App\Rules\TwitterOGTagsExist;
 
 class TwitterOGTagsExistTest extends BrowserKitTestCase
 {

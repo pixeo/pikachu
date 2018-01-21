@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\GoogleAnalyticsInstalled;
 use Tests\BrowserKitTestCase;
+use App\Rules\GoogleAnalyticsInstalled;
 
 class GoogleAnalyticsInstalledTest extends BrowserKitTestCase
 {

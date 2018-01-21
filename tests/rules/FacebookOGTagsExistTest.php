@@ -2,8 +2,8 @@
 
 namespace Tests\Rules;
 
-use App\Rules\FacebookOGTagsExist;
 use Tests\BrowserKitTestCase;
+use App\Rules\FacebookOGTagsExist;
 
 class FacebookOGTagsExistTest extends BrowserKitTestCase
 {
