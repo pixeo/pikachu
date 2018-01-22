@@ -1,5 +1,10 @@
 # Pikachu (Peek-at-you)
 
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
+[![Build Status](https://travis-ci.org/pixeo/pikachu.svg?branch=master)](https://travis-ci.org/pixeo/pikachu)
+[![StyleCI](https://styleci.io/repos/118034656/shield)](https://styleci.io/repos/118034656)
+
+
 A simple site launch checklist checker.
 
 ![](https://media.giphy.com/media/xuXzcHMkuwvf2/giphy.gif)
